@@ -7,7 +7,7 @@ class Serp < Formula
   on_macos do
     on_arm do
       url "https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v#{version}/serp-#{version}-arm64_sequoia.tar.gz"
-      sha256 "117708b4fb87e547500ad35340217c3eaa0ddac8c02a33fc2e621b99b70c95b8"
+      sha256 "f9b94e2ee67ac70a325ae5a422372724d5c4b24076124271eacc272264fa3d12"
     end
     on_intel do
       url "https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v#{version}/serp-#{version}-x86_64_sequoia.tar.gz"

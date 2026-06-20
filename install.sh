@@ -15,11 +15,16 @@ brew tap "$TAP"
 echo "==> Trusting ${TAP}..."
 brew trust "$TAP"
 
-echo "==> Installing ${PACKAGE}..."
-brew install "${TAP}/${PACKAGE}"
+if brew list --versions "${TAP}/${PACKAGE}" >/dev/null 2>&1; then
+    echo "==> Upgrading ${PACKAGE}..."
+    brew upgrade "${TAP}/${PACKAGE}"
+else
+    echo "==> Installing ${PACKAGE}..."
+    brew install "${TAP}/${PACKAGE}"
+fi
 
 echo ""
-echo "SERP installed successfully."
+echo "SERP installed/updated successfully."
 if [[ "$PACKAGE" == "serp-dev" ]]; then
     echo "Run: serpgen --version"
 fi

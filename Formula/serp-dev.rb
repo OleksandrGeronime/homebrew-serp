@@ -18,8 +18,9 @@ class SerpDev < Formula
   depends_on "OleksandrGeronime/serp/serp"
 
   def install
-    # Engineering/debug libraries
-    lib.install Dir["lib/libserp_*.dylib"]
+    # Dev-only libraries; core runtime libs come from the `serp` dependency
+    lib.install Dir["lib/libserp_runtime*.dylib"]
+    lib.install Dir["lib/libserp_test_engine*.dylib"]
 
     # Public headers
     include.install "include/serp"

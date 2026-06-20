@@ -29,8 +29,8 @@ class SerpDev < Formula
     (lib/"cmake").install "lib/cmake/Serp"
 
     # serpgen binary (nuitka standalone — needs its sibling .so files)
-    (libexec/"core").install Dir["libexec/core/*"]
-    (bin/"serpgen").write_exec_script(libexec/"core/serpgen")
+    libexec.install "libexec/core"
+    (bin/"serpgen").write_exec_script libexec/"core/serpgen"
   end
 
   test do

@@ -30,7 +30,7 @@ class SerpDev < Formula
 
     # serpgen binary (nuitka standalone — needs its sibling .so files)
     libexec.install "libexec/core"
-    (bin/"serpgen").write_exec_script libexec/"core/serpgen"
+    bin.write_exec_script libexec/"core/serpgen"
   end
 
   test do

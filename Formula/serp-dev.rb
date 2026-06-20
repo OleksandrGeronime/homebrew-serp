@@ -18,7 +18,9 @@ class SerpDev < Formula
   depends_on "OleksandrGeronime/serp/serp"
 
   def install
-    # Dev-only libraries; core runtime libs come from the `serp` dependency
+    # Namelinks for runtime libs (versioned files come from the `serp` dependency)
+    lib.install Dir["lib/libserp_*.dylib"].reject { |f| f =~ /\.\d+\./ }
+    # Full install for dev-only libs (runtime adapter + test engine)
     lib.install Dir["lib/libserp_runtime*.dylib"]
     lib.install Dir["lib/libserp_test_engine*.dylib"]
 

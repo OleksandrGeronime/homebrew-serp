@@ -39,6 +39,13 @@ brew install OleksandrGeronime/serp/serp-dev   # or: serp
 serpgen --version
 ```
 
+### Update
+
+```bash
+brew update
+brew upgrade OleksandrGeronime/serp/serp-dev
+```
+
 ---
 
 ## Ubuntu / Debian

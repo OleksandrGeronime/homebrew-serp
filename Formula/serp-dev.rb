@@ -6,11 +6,11 @@ class SerpDev < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v#{version}/serp-dev-#{version}-arm64_sequoia.tar.gz"
+      url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-dev-#{version}-arm64_sequoia.tar.gz"
       sha256 "054c71f359f35c1b3ffff349a6ec52245cdc932fb3badab989a18fad64249fae"
     end
     on_intel do
-      url "https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v#{version}/serp-dev-#{version}-x86_64_ventura.tar.gz"
+      url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-dev-#{version}-x86_64_ventura.tar.gz"
       sha256 "FILL_X86_SERPDEV_SHA256"
     end
   end

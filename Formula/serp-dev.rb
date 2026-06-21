@@ -1,17 +1,17 @@
 class SerpDev < Formula
   desc "SERP development files and code generator"
   homepage "https://github.com/OleksandrGeronime/serp"
-  version "0.4.0"
+  version "0.4.4"
   license "Proprietary"
 
   on_macos do
     on_arm do
       url "https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v#{version}/serp-dev-#{version}-arm64_sequoia.tar.gz"
-      sha256 "b2fefbfcf5d72b97be045d2a23acacc0a76315cf759ae5cd3902aa2f57cdae18"
+      sha256 "8b5cfd4932765053a91bfa5caad239ea77b268015aba383dd887a6d87f6f4f1a"
     end
     on_intel do
-      url "https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v#{version}/serp-dev-#{version}-x86_64_sequoia.tar.gz"
-      sha256 "FILL_IN_BY_CI"
+      url "https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v#{version}/serp-dev-#{version}-x86_64_ventura.tar.gz"
+      sha256 "FILL_X86_SERPDEV_SHA256"
     end
   end
 

@@ -1,6 +1,6 @@
 # SERP — Binary Distribution
 
-SERP is a C++ distributed system generation platform: spec → IR → generated multiprocess system.
+**SERP** (Service · Event · Runtime · Platform) is a C++ framework for building distributed, multiprocess embedded and automotive systems.
 
 ## Packages
 
@@ -45,18 +45,18 @@ brew install OleksandrGeronime/serp/serp-dev   # or: serp
 
 ### Upgrade (if already installed)
 
-Download the new `.deb` from [Releases](https://github.com/OleksandrGeronime/homebrew-serp/releases/latest) and re-run `dpkg -i`.
+Download the new `.deb` from [Releases](https://github.com/OleksandrGeronime/serp/releases/latest) and re-run `dpkg -i`.
 
 ### Manual install
 
-Download the latest `.deb` packages from the [Releases](https://github.com/OleksandrGeronime/homebrew-serp/releases/latest) page and install:
+Download the latest `.deb` packages from the [Releases](https://github.com/OleksandrGeronime/serp/releases/latest) page and install:
 
 ```bash
 # Replace x.y.z with the version you want
-VERSION=0.4.4
+VERSION=0.5.0
 
-wget https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v${VERSION}/serp_${VERSION}_amd64.deb
-wget https://github.com/OleksandrGeronime/homebrew-serp/releases/download/v${VERSION}/serp-dev_${VERSION}_amd64.deb
+wget https://github.com/OleksandrGeronime/serp/releases/download/v${VERSION}/serp_${VERSION}_amd64.deb
+wget https://github.com/OleksandrGeronime/serp/releases/download/v${VERSION}/serp-dev_${VERSION}_amd64.deb
 
 sudo dpkg -i serp_${VERSION}_amd64.deb serp-dev_${VERSION}_amd64.deb
 ```
@@ -77,5 +77,5 @@ After installing `serp-dev`:
 
 ```cmake
 find_package(Serp REQUIRED)
-target_link_libraries(your_target serp::serp_core serp::serp_logger)
+target_link_libraries(your_target Serp::core Serp::transport Serp::logger_console)
 ```

@@ -1,13 +1,13 @@
 class SerpDev < Formula
   desc "SERP development files and code generator"
   homepage "https://github.com/OleksandrGeronime/serp"
-  version "0.4.5"
+  version "0.5.2"
   license "Proprietary"
 
   on_macos do
     on_arm do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-dev-#{version}-arm64_sequoia.tar.gz"
-      sha256 "054c71f359f35c1b3ffff349a6ec52245cdc932fb3badab989a18fad64249fae"
+      sha256 "ce5ec2dc3b23e08cb2b2ebf5ca01c84b6bcd5d3fdaaac799089832b548a0101c"
     end
     on_intel do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-dev-#{version}-x86_64_ventura.tar.gz"

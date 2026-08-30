@@ -1,13 +1,13 @@
 class SerpDev < Formula
-  desc "SERP development files and code generator"
+  desc "SERP development files, code generator, and standalone AI runner"
   homepage "https://github.com/OleksandrGeronime/serp"
-  version "0.9.0"
+  version "0.10.2"
   license "Proprietary"
 
   on_macos do
     on_arm do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-dev-#{version}-arm64_sequoia.tar.gz"
-      sha256 "65691893f4db340e2d847b6c08ffa262bea08cef767008254d2267cc9bf8f6f5"
+      sha256 "60d1aad352d64dfa4d6678f42e0c2f30b735699c81aa55545958897954d5996e"
     end
     on_intel do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-dev-#{version}-x86_64_ventura.tar.gz"
@@ -31,13 +31,18 @@ class SerpDev < Formula
     (lib/"cmake").install "lib/cmake/Serp"
 
     # serpgen binary (nuitka standalone — needs its sibling .so files)
-    libexec.install "libexec/core"
-    bin.write_exec_script libexec/"core/serpgen"
+    (libexec/"serpgen").install Dir["libexec/serpgen/*"]
+    bin.write_exec_script libexec/"serpgen/serpgen"
+
+    # serpai standalone bundle is kept separate from serpgen's sibling libraries.
+    (libexec/"serpai").install Dir["libexec/serpai/*"]
+    bin.write_exec_script libexec/"serpai/serpai"
   end
 
   test do
     assert_predicate include/"serp/core/App.hpp", :exist?
     assert_predicate lib/"cmake/Serp/SerpConfig.cmake", :exist?
     system bin/"serpgen", "--version"
+    system bin/"serpai", "--version"
   end
 end

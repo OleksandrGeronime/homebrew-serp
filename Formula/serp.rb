@@ -1,13 +1,13 @@
 class Serp < Formula
   desc "SERP runtime libraries"
   homepage "https://github.com/OleksandrGeronime/serp"
-  version "0.10.2"
+  version "0.11.0"
   license "Proprietary"
 
   on_macos do
     on_arm do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-#{version}-arm64_sequoia.tar.gz"
-      sha256 "9866fde8a306aeb1f33847e3efb50faf224ab48af7b0e32178ebbc3b9653fb54"
+      sha256 "ddd54dc2790f89cab470d108177474ab828792a95a4f39db0bd80fe711594f80"
     end
     on_intel do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-#{version}-x86_64_ventura.tar.gz"

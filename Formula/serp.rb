@@ -7,11 +7,11 @@ class Serp < Formula
   on_macos do
     on_arm do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-#{version}-arm64_sequoia.tar.gz"
-      sha256 "fb887e2946e7b43583c3f8aaa5eae0470eae732adcefd444501cbe287a125aed"
+      sha256 "d61cceb82691dc5ebd0b1e3847d9a22a8c2c9906b1902b6facacba5c86495491"
     end
     on_intel do
-      url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-#{version}-x86_64_ventura.tar.gz"
-      sha256 "FILL_X86_SERP_SHA256"
+      url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-#{version}-x86_64_sequoia.tar.gz"
+      sha256 "d62f469864c14e6fa0253cb43f55910d3de94cb6086cf4f72707bd7d3ebe45ce"
     end
   end
 

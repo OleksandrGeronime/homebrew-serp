@@ -1,13 +1,13 @@
 class SerpDev < Formula
   desc "SERP development files, code generator, and standalone AI runner"
   homepage "https://github.com/OleksandrGeronime/serp"
-  version "0.11.0"
+  version "0.12.5"
   license "Proprietary"
 
   on_macos do
     on_arm do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-dev-#{version}-arm64_sequoia.tar.gz"
-      sha256 "05c60592853b2cf22e3fc637a3d08193e165c8fa2c4ea8643b6e4a4f5ae2f544"
+      sha256 "7ce6442c8aaab252784fc1ee61ac12ea25a315d3278dece4e55f38ca4bd1f2c4"
     end
     on_intel do
       url "https://github.com/OleksandrGeronime/serp/releases/download/v#{version}/serp-dev-#{version}-x86_64_ventura.tar.gz"
@@ -29,6 +29,15 @@ class SerpDev < Formula
 
     # CMake package config
     (lib/"cmake").install "lib/cmake/Serp"
+    (lib/"cmake").install "lib/cmake/SerpUi" if File.directory?("lib/cmake/SerpUi")
+
+    # serp_ui source-only UI SDK: its own headers (share/serp/ui/include) plus
+    # the common/, lvgl/, swiftui/ and compose/ source+CMake trees
+    # that SerpUiConfig.cmake points generated consumers at. Installed as a
+    # unit under share/serp/ui by serp_ui/CMakeLists.txt.
+    if File.directory?("share/serp/ui")
+      (share/"serp/ui").install Dir["share/serp/ui/*"]
+    end
 
     # serpgen binary (nuitka standalone — needs its sibling .so files)
     (libexec/"serpgen").install Dir["libexec/serpgen/*"]
@@ -42,6 +51,15 @@ class SerpDev < Formula
   test do
     assert_predicate include/"serp/core/App.hpp", :exist?
     assert_predicate lib/"cmake/Serp/SerpConfig.cmake", :exist?
+    # serp_ui source-only SDK: installed unconditionally regardless of
+    # whether SERP itself was built with SERP_BUILD_UI_LVGL.
+    assert_predicate lib/"cmake/SerpUi/SerpUiConfig.cmake", :exist?
+    assert_predicate share/"serp/ui/lvgl/CMakeLists.txt", :exist?
+    assert_predicate share/"serp/ui/lvgl/include/serp_ui/lvgl/ScreenHost.hpp", :exist?
+    assert_predicate share/"serp/ui/swiftui/SerpHmiRuntime.swift", :exist?
+    assert_predicate share/"serp/ui/swiftui/SerpHmiLayout.swift", :exist?
+    assert_predicate share/"serp/ui/swiftui/SerpHmiScreenHost.swift", :exist?
+    assert_predicate share/"serp/ui/compose/SerpHmiRuntime.kt", :exist?
     system bin/"serpgen", "--version"
     system bin/"serpai", "--version"
   end
